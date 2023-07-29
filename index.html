@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js area of rectangle,circle and triangle program</title>
+</head>
+
+<body>
+    <h1>area of rectangle,circle and triangle program</h1>
+    <select onchange="run(this.value)" id="select">
+        <option disabled selected>Select a shape</option>
+        <option value="triangle">triangle</option>
+        <option value="rectangle">rectangle</option>
+        <option value="circle">circle</option>
+    </select>
+
+    <div style="display: flex; flex-direction: column; align-items: center;" id="input">
+
+    </div>
+    <h2 id="output"></h2>
+</body>
+<script>
+    let output = document.getElementById("output");
+
+
+    function run(val) {
+        output.innerHTML = "";
+        let input = document.getElementById("input");
+        switch (val) {
+            case "rectangle":
+                input.innerHTML = `<label>length</label>
+        <input id="length"  type="text" placeholder="Enter the length">
+        <label>width</label>
+        <input id="width" type="text" placeholder="Enter the width">
+        <button onclick="calc('${val}')">go</button>`;
+                break;
+            case "triangle":
+                input.innerHTML = `<label>base</label>
+        <input id="base" type="text" placeholder="Enter the base">
+        <label>height</label>
+        <input id="height" type="text" placeholder="Enter the height">
+        <button onclick="calc('${val}')">go</button>`;
+                break;
+            case "circle":
+                input.innerHTML = `
+                    <label>radius</label>
+        <input id="radius" type="text" placeholder="Enter the radius">
+        <button onclick="calc('${val}')">go</button>
+                    `;
+                break;
+            default:
+                input.innerHTML = "";
+
+        }
+    }
+    function areaTriangle(base, height) {
+        area = Math.floor((1 / 2) * base * height);
+        return area.toString();
+    }
+    function areaRectangle(length, width) {
+        area = Math.floor(length * width);
+        return area.toString();
+    }
+
+    function areaCircle(r) {
+        area = Math.floor(Math.PI * (r * r));
+        // console.log(r);
+        return area.toString();
+    }
+
+    let area = 0;
+    function calc(shape) {
+        console.log(shape);
+        if (shape === "triangle") {
+            let base = document.getElementById("base");
+            let height = document.getElementById("height");
+            area = areaTriangle(base.value, height.value);
+        }
+        if (shape === "rectangle") {
+
+            let length = document.getElementById("length");
+            let width = document.getElementById("width");
+            area = areaRectangle(length.value, width.value);
+        }
+        if (shape === "circle") {
+
+            let radius = document.getElementById("radius");
+            area = areaCircle(radius.value);
+        }
+
+        output.innerHTML = `
+            <h1>area of ${shape} = ${area}</h1>
+        `;
+    }
+</script>
+
+</html>
