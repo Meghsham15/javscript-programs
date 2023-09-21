@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js pract 2 multiplication table</title>
+</head>
+<body style="display: flex;flex-direction: column;align-items: center;">
+    <input id="input" name="input" type="number" placeholder="enter the number ">
+    <button onclick="calc()">Calculate</button>
+    <ul style="list-style: none;" id="output">
+        <!-- <li>123</li> -->
+    </ul>
+</body>
+<script>
+    function calc(){
+        let input = document.getElementById("input");
+        let output = document.getElementById("output");
+        let num = input.value;
+        // console.log(num);
+        output.innerHTML = "";
+        for(let i=1;i<=10;i++){
+            output.innerHTML += `
+                <li>
+                    ${num}X${i} = ${num*i}
+                </li>
+            `
+        }
+
+    }
+
+    function createTable(num){
+        for(let i=1;i<=10;i++){
+            console.log(num*i);
+            output.innerHtml += `
+                <li>
+                    ${num}X${i} = ${num*i}
+                </li>
+            `
+        }
+    }
+
+</script>
+</html>

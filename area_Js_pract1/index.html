@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area js program</title>
+</head>
+
+<body>
+    <select onchange="run(this)" name="" id="shape">
+        <option value="" selected disabled>Select shape</option>
+        <option value="triangle">Triangle</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="circle">Circle</option>
+    </select>
+    <div id="input" class="input">
+
+    </div>
+
+    <div id="output">
+
+    </div>
+</body>
+<script>
+    const select = document.getElementById("shape");
+    const input = document.getElementById("input");
+    const output = document.getElementById("output");
+    class Shape {
+        areaRectangle(length, width) {
+            return length * width;
+        }
+
+        areaTriangle(base, height) {
+            return 0.5 * base * height;
+        }
+
+        areaCircle(r) {
+            return Math.PI * (r * r);
+        }
+    }
+
+    function run(ele){
+        // console.log(ele.value);
+        if(ele.value==="triangle"){
+            input.innerHTML = `
+            <input id="base" placeholder="base" type="text">
+        <input id="height" placeholder="height" type="text">
+        <button onclick="calc('triangle')" >Calculate</button>
+            `;
+        }
+        if(ele.value ==="rectangle"){
+            input.innerHTML =  `
+            <input id="length" type="text" placeholder="length">
+        <input id="width" type="text" placeholder="width">
+        <button onclick="calc('rectangle')" >Calculate</button>
+            `;
+        }
+        if(ele.value==="circle"){
+            input.innerHTML = `
+            <input id="radius" type="text" placeholder="radius">
+        <button onclick="calc('circle')" >Calculate</button>
+            `;
+        }
+    }
+
+    let area = new Shape();
+
+    function calc(shape){
+        console.log(shape);
+        if(shape==="triangle"){
+            let base = document.getElementById("base");
+            let height = document.getElementById("height");
+            let ans =  area.areaTriangle(base.value,height.value);
+            output.innerHTML = `
+                <h1>area of ${shape} is ${ans}</h1>
+            `;
+        }
+        if(shape==="rectangle"){
+            let length = document.getElementById("length");
+            let width = document.getElementById("width");
+            let ans =  area.areaRectangle(length.value,width.value);
+            output.innerHTML = `
+                <h1>area of ${shape} is ${ans}</h1>
+            `;
+        }
+        if(shape==="circle"){
+            let radius = document.getElementById("radius");
+            let ans =  area.areaCircle(radius.value);
+            output.innerHTML = `
+                <h1>area of ${shape} is ${ans}</h1>
+            `;
+        }else{
+            console.log("error")
+        }
+    }
+
+
+</script>
+
+</html>

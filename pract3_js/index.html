@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check reverse string check palindrome replace string char</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="enter the string">
+    <button id="reverse" onclick="calc(this)">reverse string</button>
+    <button id="palindrome" onclick="calc(this)">palindrome string</button>
+    <button id="replace" onclick="calc(this)">replace string</button>
+    <div id="output">
+
+    </div>
+</body>
+<script>
+
+    function calc(ele){
+        let output = document.getElementById("output");
+        let input = document.getElementById("input");
+        let val ="";
+        switch (ele.id){
+            case "reverse":
+                val = reverseString(input.value);
+                output.innerHTML = val;
+                break;
+            case "palindrome":
+                val = palindrome(input.value);
+                output.innerHTML = val;
+                break;
+            case "replace":
+                val = replace(input.value);
+                output.innerHTML = val;
+                break;
+            default:
+                output.innerHTML = "put proper input";
+        }
+    }
+
+
+
+    function replace(str) {
+        let newStr = str.replaceAll(" ", "_");
+        return newStr;
+        // console.log(newStr);
+    }
+
+    // replace("hello world");
+
+    function reverseString(str){
+        let strArr = str.split('');
+        let revArr = strArr.reverse();
+        let revStr = revArr.join('');
+        return revStr;
+        // console.log(revStr);
+    }
+
+    // reverseString("hello");
+
+    function palindrome(str){
+        let revStr = reverseString(str);
+        if(revStr===str){
+            return "yes "+str+" is a palindrome";
+        }else{
+            return "No "+str+" is not a palindrome";
+        }
+    }
+
+
+</script>
+
+</html>
