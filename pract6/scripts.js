@@ -16,6 +16,7 @@ class ArrayOperations {
     checkElement(ele) {
         for(let i = 0;i<this.arr.length;i++){
             if(this.arr[i] ===ele){
+                // console.log("checked ele true");
                 return [`The element ${ele} is present in the array`,i];
             }
         }
@@ -31,7 +32,9 @@ class ArrayOperations {
 
     removeElement(ele) {
         let index = this.checkElement(ele)[1];
-        if (index) {
+        // console.log(index+"ele is "+this.arr[index]);
+        if (index || index ===0) {
+           
             this.arr.splice(index,1);
             return `${ele} this element removed - ` + JSON.stringify(this.arr);
         }

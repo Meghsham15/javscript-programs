@@ -7,11 +7,21 @@
 </head>
 <body>
 
-    <select onchange="run(this.value)" name="" id="operations">
-        <option value="empty">Empty array</option>
-        <option value="check">Check element</option>
-        <option value="remove">Remove element</option>
-    </select>
+    <div class="input">
+        <input id="str1" type="text" placeholder="enter str 1">
+        <input id="str2" type="text" placeholder="enter str 2">
+        <select name="" id="method">
+            <option value="regex">regex</option>
+            <option value="uppercase">uppercase</option>
+            <option value="local">local</option>
+        </select>
+        <button id="check">check</button>
+    </div>
+
+    <h1 id="display" class="display">
+
+    </h1>
+
 </body>
 <script src="index.js"></script>
 </html>

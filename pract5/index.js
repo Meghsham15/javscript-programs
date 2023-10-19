@@ -48,7 +48,7 @@ class Countdown {
 // time format - 
 // "Aug 21, 2023 15:35"
 
-let obj = new Countdown("Aug 21, 2023 15:45");
+let obj = new Countdown("Oct 19, 2023 10:05");
 obj.setCountdown();
 
 
